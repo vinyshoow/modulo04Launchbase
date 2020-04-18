@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "http://google.com",
+      "name": "Cuca",
+      "birth": 660268800000,
+      "created_at": 1587233345377,
+      "gender": "M",
+      "services": "Musculação, crossfit"
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://google.com",
+      "name": "Dunha",
+      "birth": 660268800000,
+      "gender": "M",
+      "services": "Musculação, crossfit",
+      "created_at": 1587233436230
+    }
+  ]
+}
