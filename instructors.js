@@ -3,6 +3,10 @@ const Intl = require('intl');
 const data = require('./data.json');
 const { age, date } = require('./utils');
 
+//index
+exports.index = function(req, res){
+  return res.render('instructors/index', { instructors: data.instructors});
+};
 
 //show
 exports.show = function(req, res) {
@@ -81,14 +85,13 @@ exports.edit = function(req, res) {
 
   const instructor = {
     ...foundInstructor,
-    birth: date(foundInstructor.birth)
+    birth: date(foundInstructor.birth),
   }
   
 
   return res.render("instructors/edit", { instructor });
 };
 //put - update
-
 exports.put = function(req, res) {
   const { id } = req.body;
   let index = 0;
@@ -107,7 +110,8 @@ exports.put = function(req, res) {
   const instructor = {
     ...foundInstructor,
     ...req.body,
-    birth: Date.parse(req.body.birth)
+    birth: Date.parse(req.body.birth),
+    id: Number(req.body.id)
   }
 
   data.instructors[index] = instructor;
