@@ -1,13 +1,16 @@
 const fs = require('fs');
 const Intl = require('intl');
-const data = require('./data.json');
-const { age, date } = require('./utils');
+const data = require('../data.json');
+const { age, date } = require('../utils');
 
 //index
 exports.index = function(req, res){
   return res.render('instructors/index', { instructors: data.instructors});
 };
-
+//create
+exports.create = function(req, res){
+  return res.render('instructors/create');
+};
 //show
 exports.show = function(req, res) {
   // req.params.id = /:id/:member
@@ -31,7 +34,7 @@ exports.show = function(req, res) {
   return res.render("instructors/show", { instructor });
 
 };
-// create
+// Criar
 exports.post = function(req, res) {
 
   const keys = Object.keys(req.body);
@@ -85,7 +88,7 @@ exports.edit = function(req, res) {
 
   const instructor = {
     ...foundInstructor,
-    birth: date(foundInstructor.birth),
+    birth: date(foundInstructor.birth).iso,
   }
   
 
@@ -138,4 +141,4 @@ exports.delete = function(req,res) {
 
     return res.redirect("/instructors");
   })
-}
+};
